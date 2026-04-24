@@ -53,7 +53,7 @@ public final class Constants {
     // Port constants for driver and operator controllers. These should match the
     // values in the Joystick tab of the Driver Station software
     public static final int DRIVER_CONTROLLER_PORT = 0;
-    public static final int OPERATOR_CONTROLLER_PORT = 1;
+    public static final int OPERATOR_CONTROLLER_PORT = 0;
 
     // This value is multiplied by the joystick value when rotating the robot to
     // help avoid turning too fast and being difficult to control
