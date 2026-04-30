@@ -40,9 +40,9 @@ public final class Constants {
     // based on exact robot construction.
     // See the Software Guide for tuning information
     public static final double INTAKING_FEEDER_VOLTAGE = -12; //default -12
-    public static final double INTAKING_INTAKE_VOLTAGE = 10; //default 10
-
-    public static final double LAUNCHING_FEEDER_VOLTAGE = 9; //default 9
+    public static final double INTAKING_INTAKE_VOLTAGE = 7; //default 10
+    
+    public static final double LAUNCHING_FEEDER_VOLTAGE = 10; //default 9
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = 12; //default 10.6 ideal 20
 
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6; //default -6
@@ -58,6 +58,6 @@ public final class Constants {
     // This value is multiplied by the joystick value when rotating the robot to
     // help avoid turning too fast and being difficult to control
     public static final double DRIVE_SCALING = .7;
-    public static final double ROTATION_SCALING = .45;
+    public static final double ROTATION_SCALING = .75;
   }
 }

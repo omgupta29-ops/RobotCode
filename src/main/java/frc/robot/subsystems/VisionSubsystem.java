@@ -4,9 +4,11 @@
  
 package frc.robot.subsystems; 
  
-import edu.wpi.first.math.util.Units; 
+import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase; 
 import frc.robot.LimelightHelpers; 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  
 public class VisionSubsystem extends SubsystemBase { 
  
@@ -19,15 +21,15 @@ public class VisionSubsystem extends SubsystemBase {
         Units.inchesToMeters(51.25); // Floor to center of AprilTag on goal 
                                      // SET THIS FROM THE 2026 GAME MANUAL 
     private static final double CAMERA_PITCH_RADIANS = 
-        Units.degreesToRadians(15.0); // Upward tilt angle of Limelight 
-    private static final double DESIRED_RANGE_METERS = 2.0; 
+        Units.degreesToRadians(11.0); // Upward tilt angle of Limelight 
+    private static final double DESIRED_RANGE_METERS = 1.9; 
                                      // Shooting distance bumper to goal 
  
     // ------------------------------------------------------- 
     // PID TUNING CONSTANTS (See Step 5) 
     // ------------------------------------------------------- 
-    private static final double kP_ROTATION = 0.04; 
-    private static final double kP_DISTANCE = 0.6; 
+    private static final double kP_ROTATION = 0.45; 
+    private static final double kP_DISTANCE = 1.75; 
  
     // Must match the name shown in the Limelight dashboard Settings tab 
     private static final String LIMELIGHT_NAME = "limelight"; 
@@ -65,7 +67,9 @@ public class VisionSubsystem extends SubsystemBase {
             // Forward speed: positive = drive forward, negative = back up 
             double forwardSpeed = 
                 (currentDist - DESIRED_RANGE_METERS) * kP_DISTANCE; 
- 
+            SmartDashboard.putNumber("CurrentDist", currentDist);
+            SmartDashboard.putNumber("ForwardSpeed", forwardSpeed);
+
             // Safety caps: limit max speed in either direction 
             return new double[]{ 
                 Math.max(-0.5, Math.min(0.5, forwardSpeed)),   // index 0 
