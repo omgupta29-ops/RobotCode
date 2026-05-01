@@ -16,11 +16,11 @@ public class ExampleAuto extends SequentialCommandGroup {
 public ExampleAuto(CANDriveSubsystem driveSubsystem, CANFuelSubsystem fuelSubsystem, VisionSubsystem visionSubsystem) {
 
 addCommands(
-new AutoDrive(driveSubsystem, -0.75, 0.0).withTimeout(1.25),
+new AutoDrive(driveSubsystem, -0.65, 0.0).withTimeout(1.85),
 
 // STEP 1: Vision align (up to 5 seconds)
 new VisionAlign(driveSubsystem, visionSubsystem)
-.withTimeout(9.0),
+.withTimeout(6.0),
 
 // STEP 2: SpinUp (2.5 seconds)
 new SpinUp(fuelSubsystem)
@@ -28,7 +28,7 @@ new SpinUp(fuelSubsystem)
 
 // STEP 3: Launch stationary (8 seconds)
 new Launch(fuelSubsystem)
-.withTimeout(8.0),
+.withTimeout(10.25),
 
 // STEP 4: Shake + Launch in parallel (12 seconds)
 new ParallelCommandGroup(

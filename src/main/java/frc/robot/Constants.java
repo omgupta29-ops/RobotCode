@@ -42,11 +42,12 @@ public final class Constants {
     public static final double INTAKING_FEEDER_VOLTAGE = -12; //default -12
     public static final double INTAKING_INTAKE_VOLTAGE = 7; //default 10
     
-    public static final double LAUNCHING_FEEDER_VOLTAGE = 10; //default 9
+    public static final double LAUNCHING_FEEDER_VOLTAGE = 7; //default 9
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = 12; //default 10.6 ideal 20
 
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6; //default -6
-    public static final double SPIN_UP_SECONDS = 2.5; //default 1 ideal 3-4
+    public static final double SPIN_UP_SECONDS = 2.5;
+    public static final double SPIN_UP_SECONDS1 = 4; //default 1 ideal 3-4
   }
 
   public static final class OperatorConstants {
