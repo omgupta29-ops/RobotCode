@@ -1,3 +1,4 @@
+cat > /tmp/currentrobot/RobotCode-main/src/main/java/frc/robot/RobotContainer.java << 'EOF'
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
@@ -115,6 +116,10 @@ public class RobotContainer {
       // speeds[0] = forward/back speed, speeds[1] = rotation speed
       driveSubsystem.driveArcade(speeds[0], speeds[1]);
     }, driveSubsystem));
+
+    // X button enables brake mode while held, returns to coast when released
+    driverController.x().onTrue(new InstantCommand(() -> driveSubsystem.setBrakeMode(true)));
+    driverController.x().onFalse(new InstantCommand(() -> driveSubsystem.setBrakeMode(false)));
   }
 
   /**
@@ -127,4 +132,3 @@ public class RobotContainer {
     return autoChooser.getSelected();
   }
 }
-// ...existing code...
