@@ -8,6 +8,7 @@ import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -74,4 +75,15 @@ public class CANDriveSubsystem extends SubsystemBase {
     drive.arcadeDrive(-xSpeed, -zRotation);
   }
 
+  // Enables or disables brake mode on all four drive motors.
+  // true  = brake (motors resist movement when stopped)
+  // false = coast (motors spin freely when stopped)
+  public void setBrakeMode(boolean brake) {
+    SparkMaxConfig config = new SparkMaxConfig();
+    config.idleMode(brake ? IdleMode.kBrake : IdleMode.kCoast);
+    leftLeader.configure(config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    rightLeader.configure(config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    leftFollower.configure(config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+    rightFollower.configure(config, ResetMode.kNoResetSafeParameters, PersistMode.kNoPersistParameters);
+  }
 }
